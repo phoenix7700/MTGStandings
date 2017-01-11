@@ -1,0 +1,143 @@
+body{
+	background-attachment: fixed;
+	background-color: black;
+	background-image: url("mtgbackgroundpattern.png");
+	background-repeat: repeat-x;
+	margin: 0px;
+}
+footer p {
+	color: white;
+	text-shadow: 1px 1px 0px black;
+	position: fixed;
+	bottom: 0;
+	text-align: center;
+	margin: 1px;
+	font-family: "Verdana", Ver , sans-serif;
+	font-size: .5em;
+}
+h1 {
+	text-align: center;
+	margin: auto auto;
+	//color: white;
+	color: #a70202;
+	text-decoration: none;
+	text-shadow: 3px 3px 2px black;
+	//text-shadow: 1px 2px 1px #cdcdcd;
+	font-family: "Verdana", Ver , sans-serif;
+	font-weight: bold;
+}
+h2 {
+	width: 75px;
+	color: #a70202;
+	text-decoration: none;
+	text-shadow: 3px 3px 2px black;
+	font-family: "Verdana", Ver , sans-serif;
+	font-weight: bold;
+	float:left;
+	text-align: right;
+}
+img {
+	margin: 0px 0px 0px 0px;
+	z-index:-1;
+}
+
+div#title{
+	width:900px;
+	margin:auto;
+}
+
+div#wrapper {
+	margin: auto;
+	width: 90%;	
+}
+div#cardsToCompare {
+	margin: 5px auto auto auto;
+	width: 462px;
+}
+div#nav {
+	background-color: rgba(136,136,136,.88);
+}
+div#center{
+	float: left;
+	margin: 0px 0px 0px 3px;
+	width: 223px;
+}
+div#standings {
+	margin: auto;
+	width: 909px;
+}
+div#sectionsbot{
+	clear: both;
+}
+ul {
+	margin: 0px auto auto auto;
+	list-style-type: none;
+	padding: 0;
+	overflow: hidden;
+	text-align: center;
+	background-color: rgba(136,136,136,.99);
+	min-width:410px;
+
+	
+}
+input{
+	margin: 3px;
+}
+input:hover {
+	box-shadow: 0px 0px 6px 3px rgba(136,136,136,.99);
+}
+li:last-child {
+	border-right: 0px hidden black;
+}
+li {
+	float:left;
+	border-right: 3px solid black;
+	width: 200px;
+	display: inline;
+	
+}
+
+div.centerlist {
+	display: table;
+	margin: auto auto;
+}
+
+li a {
+	display: block;
+	color: #a70202;
+	text-decoration: none;
+	text-shadow: 1px 1px 0px black;
+	//text-shadow: 1px 1px 0px #cdcdcd;
+	font-size: 1em;
+	font-family: "Verdana", Ver , sans-serif;
+	font-weight: bold;
+}
+li a:hover{
+	color: #e73232;
+}
+table{
+	margin: auto;
+}
+th {
+	margin: 0px 4px 0px 0px;
+	//border-right: 3px solid black;
+	border-radius: 5px;
+	padding: 1px 3px 1px 3px;
+	background-color: rgba(136,136,136,.8);
+}
+th:last-child{
+	border: none;
+}
+th a{
+	width: 90px;
+	color: #a70202;
+	text-decoration: none;
+	text-shadow: 1px 1px 0px black;
+	font-size: 1em;
+	font-family: "Verdana", Ver , sans-serif;
+	font-weight: bolder;
+}
+th a:hover {
+	color: #e73232;
+}
+
