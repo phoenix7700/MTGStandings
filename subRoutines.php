@@ -1,10 +1,30 @@
 <?php 
 function getNewRandomCards() {
-include 'connect.php'
+include 'connect.php';
 
+session_status() === PHP_SESSION_ACTIVE ? true : session_start();
 
-$sql = "SELECT id FROM card";
-$cardIDs = $conn->query($sql);
+if (isset($_GET['set'])){
+	$set = $_GET['set'];
+} else {
+	$set = 'KLD';
+}
+$sql = "SELECT id FROM card WHERE collection = ?";
+if(!($statement = $conn->prepare($sql))){
+   echo "Prepare failed: (" . $conn->errno . ") " . $conn->error;
+} else {
+	if(!$statement->bind_param("s",$set)){
+			 echo "Binding parameters failed: (" . $statement->errno . ") " . $statement->error;
+		}
+	if (!$statement->bind_result($fetchID)){
+			echo "Binding result failed: (" . $statement->errno.")" . $statement->error;
+	}
+	if (!($statement->execute())) {
+			echo "Execute failed: (" . $statement->errno . ") " . $statement->error;
+		}
+}
+
+$cardIDs = $statement->get_result();
 //var_dump($cardIDs);
 $length = $cardIDs->num_rows;
 $rand = rand(0,$length);
@@ -20,7 +40,7 @@ $row2 = $cardIDs->fetch_assoc();
 
 $conn->close();
 
-session_status() === PHP_SESSION_ACTIVE ? true : session_start();
+
 
 $_SESSION['leftCard'] = $row['id'];
 $_SESSION['rightCard'] = $row2['id'];

@@ -2,20 +2,20 @@
 <?php
 require 'subRoutines.php';
 //Connect to Database
-include 'connect.php'
+include 'connect.php';
 //Get POST info------------------------------------------------------------------------------------
 if (isset($_POST['cardClicked'])){
 $cardClicked = $_POST['cardClicked'];
 session_start();
 $leftCard = $_SESSION ['leftCard'];
 $rightCard = $_SESSION ['rightCard'];
-if ($cardClicked === $leftCard){
+if ($cardClicked == $leftCard){
 	$loser = $rightCard;
-} else if ($cardClicked === $rightCard){
+} else if ($cardClicked == $rightCard){
 	$loser = $leftCard;
 } else{
 //This might cause a problem with the output.
-echo "<p>Something messed up</p>";
+echo "<p>Something messed up :(". $cardClicked .",". $leftCard .",". $rightCard .")</p>";
 }
 
 //UPDATE Card Ratings in Database-----------------------------------------------------------------
@@ -24,13 +24,13 @@ if(!($statement = $conn->prepare($sql))){
 	    echo "Prepare failed: (" . $conn->errno . ") " . $conn->error;
 	}
 if(!$statement->bind_param("i",$cardClicked)){
-	     echo "Binding parameters failed: (" . $statement->errno . ") " . $statement->error;
+	     echo "Binding winner parameters failed: (" . $statement->errno . ") " . $statement->error;
 	}
 if (!$statement->bind_result($fetchID,$fetchSetRating,$fetchAllRating,$fetchWins,$fetchLosses)){
-		echo "Binding result failed: (" . $statement->errno.")" . $statement->error;
+		echo "Binding winner result failed: (" . $statement->errno.")" . $statement->error;
 }
 if (!($statement->execute())) {
-        echo "Execute failed: (" . $statement->errno . ") " . $statement->error;
+        echo "Execute winner failed: (" . $statement->errno . ") " . $statement->error;
     }
 	if ($statement->fetch() != true) { //if winning card doesn't have rating entry make new entry
 //		echo "Created new entry for " . $cardClicked . "<br />";
@@ -65,13 +65,13 @@ $clickedWins = $fetchWins;
 $clickedLoss = $fetchLosses;
 
 if(!$statement->bind_param("i",$loser)){ //bind loser parameter then query again
-	echo "Binding parameters failed: (" . $statement->errno . ") " . $statement->error;
+	echo "Binding loser parameters failed: (" . $statement->errno . ") " . $statement->error;
 	}
 if (!$statement->bind_result($fetchID,$fetchSetRating,$fetchAllRating,$fetchWins,$fetchLosses)){
-	echo "Binding result failed: (" . $statement->errno.")" . $statement->error;
+	echo "Binding loser result failed: (" . $statement->errno.")" . $statement->error;
 }
 if (!($statement->execute())) {
-	echo "Execute failed: (" . $statement->errno . ") " . $statement->error;
+	echo "Execute loser failed: (" . $statement->errno . ") " . $statement->error;
 }
 
 	if($statement->fetch() != true){ //if losing card doesn't have rating entry make new entry

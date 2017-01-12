@@ -5,9 +5,9 @@
 // Used to update card database when new sets come out.
 // Must update one set at a time.
 //
-
+echo "Updating...";
 ini_set("allow_url_fopen", 1);
-include 'connect.php'
+include 'connect.php';
 $json = file_get_contents('http://mtgjson.com/json/KLD.json'); // Put URL for JSON file here
 $set = json_decode($json, true);
 //var_dump($set);
@@ -60,9 +60,3 @@ for($i = 0; $i < $size; $i++){ //Wont work right if size isn't changed per set
 }
 $conn->close();
 ?>
-<html>
-<body>
-
-	<p id="kld">nope </p>
-</body>
-</html>

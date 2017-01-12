@@ -26,7 +26,7 @@ function refreshCards (cardID) {
 <div id="wrapper">
 <?php include 'nav.php' ?>
 <div id="title">
-<img src="title.png" alt="MtG Standing" />
+<img src="Title.png" alt="MtG Standing" />
 </div>
 <h1> Which card is more awesome? </h1>
 <div id="cardsToCompare">

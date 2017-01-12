@@ -23,7 +23,7 @@ function refreshStanding (section,rpp) {
 <div id="wrapper">
 <?php include 'nav.php' ?>
 <div id="title">
-<img id="title" src="title.png" alt="MtG Standing" />
+<img id="title" src="Title.png" alt="MtG Standing" />
 </div>
 <h1>Current Standings</h1>
 <div id="standings">

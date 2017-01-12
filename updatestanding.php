@@ -1,6 +1,6 @@
 <?php
 //Connect to Database
-include 'connect.php'
+include 'connect.php';
 
 //Setup
 $cr =	$conn->query("SELECT * FROM ratings");
@@ -51,11 +51,16 @@ if (!$statement->fetch()) {
 function displayCardNav($rpp, $total){
 	echo '<div id="sectionsbot">';
 	echo '<table><tbody><tr>';
+	if ($total < $rpp){
+		echo '<th><a href="standings.php?s=0&rpp=' . $rpp . '">1-' . $total .'</a></th>';
+	} else {
 		echo '<th><a href="standings.php?s=0&rpp='.$rpp.'">1-' . $rpp . '</a></th>';
-	for ($i = 1; ($i+1)*$rpp < $total; $i++){
-		echo '<th><a href="standings.php?s='.$i.'&rpp='.$rpp.'">' . ($i * $rpp + 1) .'-'. ($i + 1)*$rpp .'</a></th>';
-	}
+		for ($i = 1; ($i+1)*$rpp < $total; $i++){
+			echo '<th><a href="standings.php?s='.$i.'&rpp='.$rpp.'">' . ($i * $rpp + 1) .'-'. ($i + 1)*$rpp .'</a></th>';
+		}
+	
 	echo '<th><a href="standings.php?s='.$i.'&rpp='.$rpp .'">' . ($i * $rpp + 1) .'-'. $total .'</a></th>';
+	}
 	echo '</tr></tbody></table>';
 	echo '</div>';
 }
