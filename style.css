@@ -18,11 +18,9 @@ footer p {
 h1 {
 	text-align: center;
 	margin: auto auto;
-	//color: white;
 	color: #a70202;
 	text-decoration: none;
 	text-shadow: 3px 3px 2px black;
-	//text-shadow: 1px 2px 1px #cdcdcd;
 	font-family: "Verdana", Ver , sans-serif;
 	font-weight: bold;
 }
@@ -37,36 +35,37 @@ h2 {
 	text-align: right;
 }
 img {
+	width:100%;
 	margin: 0px 0px 0px 0px;
 	z-index:-1;
 }
 
-div#title{
+#title{
 	width:900px;
 	margin:auto;
 }
 
-div#wrapper {
+#wrapper {
 	margin: auto;
 	width: 90%;	
 }
-div#cardsToCompare {
+#cardsToCompare {
 	margin: 5px auto auto auto;
 	width: 462px;
 }
-div#nav {
+#nav {
 	background-color: rgba(136,136,136,.88);
 }
-div#center{
+#center{
 	float: left;
 	margin: 0px 0px 0px 3px;
 	width: 223px;
 }
-div#standings {
+#standings {
 	margin: auto;
 	width: 909px;
 }
-div#sectionsbot{
+#sectionsbot{
 	clear: both;
 }
 ul {
@@ -76,15 +75,13 @@ ul {
 	overflow: hidden;
 	text-align: center;
 	background-color: rgba(136,136,136,.99);
-	min-width:410px;
-
-	
 }
 input{
 	margin: 3px;
 }
 input:hover {
 	box-shadow: 0px 0px 6px 3px rgba(136,136,136,.99);
+	border-radius: 10px;
 }
 li:last-child {
 	border-right: 0px hidden black;
@@ -97,7 +94,7 @@ li {
 	
 }
 
-div.centerlist {
+.centerlist {
 	display: table;
 	margin: auto auto;
 }
@@ -107,7 +104,6 @@ li a {
 	color: #a70202;
 	text-decoration: none;
 	text-shadow: 1px 1px 0px black;
-	//text-shadow: 1px 1px 0px #cdcdcd;
 	font-size: 1em;
 	font-family: "Verdana", Ver , sans-serif;
 	font-weight: bold;
@@ -120,7 +116,6 @@ table{
 }
 th {
 	margin: 0px 4px 0px 0px;
-	//border-right: 3px solid black;
 	border-radius: 5px;
 	padding: 1px 3px 1px 3px;
 	background-color: rgba(136,136,136,.8);
@@ -141,3 +136,34 @@ th a:hover {
 	color: #e73232;
 }
 
+@media only screen and (max-width: 768px) {
+	li a{
+		font-size: 2em;
+	}
+	li {
+		width:100%;
+		border-bottom: 3px solid black;
+	}
+	li:last-child {
+		border:none;
+	}
+	intput{
+		width:100%;
+	}
+	#wrapper{
+		width:100%;
+	}
+	#cardsToCompare{
+		width:90%;
+		margin: 3px;
+	}
+	#title{
+		width:100%;
+	}
+	#standings{
+		width:100%;
+	}
+	#sectionsbot{
+		margin-bottom: 25px;
+	}
+}
