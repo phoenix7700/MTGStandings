@@ -1,14 +1,16 @@
 <!DOCTYPE html>
+
 <html>
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="style.css">
+	<title>MTGS - Vote</title>
 <?php
-require 'subRoutines.php';
+require './subRoutines.php';
 getNewRandomCards();
 ?>
 <script>
-function refreshCards (cardID) {
+function refreshCards (cardID,set) {
 	var xhttp;
 	xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function() {
@@ -16,24 +18,32 @@ function refreshCards (cardID) {
 			document.getElementById("cardsToCompare").innerHTML = this.responseText;
 		}
 	};
-	xhttp.open("POST", "updaterating.php", true);
+	xhttp.open("POST", "updaterating.php, true);
 	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-	xhttp.send("cardClicked=" + cardID);
+	xhttp.send("cardClicked=" + cardID + "&set=" + set);
 
 }
 </script>
 </head>
-<body >
+<body>
 <div id="wrapper">
 <?php include 'nav.php'; 
 include_once("analyticstracking.php") ?>
 <div id="title">
 <img src="Title.png" alt="MtG Standing" />
 </div>
+<div id="whichset">
+<table>
+<tr>
+	<th><a href="index.php?set=KLD"><div id="imgkld">KLD</div></a></th>
+	<th><a href="index.php?set=AER"><div id="imgaer">AER</div></a></th>
+</tr>
+</table>
+</div>
 <h1> Which card is more awesome? </h1>
 <div id="cardsToCompare">
-	<input type="image" name="cardClicked" onclick="refreshCards(this.value)" value="<?php echo $_SESSION['leftCard']?>" src="http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=<?php echo $_SESSION['leftCard']?>&type=card" />
-	<input type="image" name="cardClicked" onclick="refreshCards(this.value)" value="<?php echo $_SESSION['rightCard']?>" src="http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=<?php echo $_SESSION['rightCard']?>&type=card" />
+	<input id="compcard" type="image" name="cardClicked" onclick="refreshCards(this.value,<?php if (isset($_GET['set'])){echo $_GET['set'];} else {/*echo '%';*/echo 'AER';} ?>)" value="<?php echo $_SESSION['leftCard']?>" src="http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=<?php echo $_SESSION['leftCard']?>&type=card" />
+	<input id="compcard" type="image" name="cardClicked" onclick="refreshCards(this.value,<?php if (isset($_GET['set'])){echo $_GET['set'];} else {/*echo '%';*/echo 'AER';} ?>)" value="<?php echo $_SESSION['rightCard']?>" src="http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=<?php echo $_SESSION['rightCard']?>&type=card" />
 </div>
 </div>
 </body>

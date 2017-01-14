@@ -34,7 +34,7 @@ h2 {
 	float:left;
 	text-align: right;
 }
-img {
+#title {
 	width:100%;
 	margin: 0px 0px 0px 0px;
 	z-index:-1;
@@ -76,10 +76,11 @@ ul {
 	text-align: center;
 	background-color: rgba(136,136,136,.99);
 }
-input{
+
+#compcard{
 	margin: 3px;
 }
-input:hover {
+#compcard:hover {
 	box-shadow: 0px 0px 6px 3px rgba(136,136,136,.99);
 	border-radius: 10px;
 }
@@ -113,18 +114,20 @@ li a:hover{
 }
 table{
 	margin: auto;
+	vertical-align: middle;
 }
 th {
 	margin: 0px 4px 0px 0px;
 	border-radius: 5px;
-	padding: 1px 3px 1px 3px;
+	padding: 2px 4px 2px 4px;
 	background-color: rgba(136,136,136,.8);
+	vertical-align: middle;
 }
 th:last-child{
 	border: none;
 }
 th a{
-	width: 90px;
+	display: block;
 	color: #a70202;
 	text-decoration: none;
 	text-shadow: 1px 1px 0px black;
@@ -136,6 +139,30 @@ th a:hover {
 	color: #e73232;
 }
 
+#imgkld{
+	height:26px;
+	width: 100%;
+	float: left;
+	text-indent: 33px;
+	background-image: url('http://gatherer.wizards.com/Handlers/Image.ashx?type=symbol&set=KLD&size=medium&rarity=U');
+	background-repeat:no-repeat;
+}
+#imgkld:hover{
+	background-image: url('http://gatherer.wizards.com/Handlers/Image.ashx?type=symbol&set=KLD&size=medium&rarity=M');
+}
+
+
+#imgaer{
+	height:26px;
+	width:100%;
+	float: left;
+	text-indent: 33px;
+	background-image: url('http://gatherer.wizards.com/Handlers/Image.ashx?type=symbol&set=AER&size=medium&rarity=U');
+	background-repeat:no-repeat;
+}
+#imgaer:hover{
+	background-image: url('http://gatherer.wizards.com/Handlers/Image.ashx?type=symbol&set=AER&size=medium&rarity=M');	
+}
 @media only screen and (max-width: 768px) {
 	li a{
 		font-size: 2em;

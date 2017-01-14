@@ -8,10 +8,10 @@
 echo "Updating...";
 ini_set("allow_url_fopen", 1);
 include 'connect.php';
-$json = file_get_contents('http://mtgjson.com/json/KLD.json'); // Put URL for JSON file here
+$json = file_get_contents('http://mtgjson.com/json/AER.json'); // Put URL for JSON file here
 $set = json_decode($json, true);
 //var_dump($set);
-$size = 247; // number of cards in set this should be changed to be dynamic but im lazy
+$size = 194; // number of cards in set this should be changed to be dynamic but im lazy
 echo $size;
 
 

@@ -35,6 +35,7 @@ if (!$statement->fetch()) {
 	echo "Fetch failed: (" . $statement->errno . ") " . $statement->error;
 } else {
 	//Card nav
+	displaySetNav();
 	displayCardNav($resultsPerPage,$totalResults);
 	//Start cards
 	$num = ($section+1) * $resultsPerPage - $resultsPerPage + 1; 
@@ -46,6 +47,16 @@ if (!$statement->fetch()) {
 	$num++;
 	} while ($statement->fetch());
 	displayCardNav($resultsPerPage,$totalResults);
+}
+function displaySetNav(){
+echo '<div id="whichset">
+<table>
+<tr>
+	<th><a href="standings.php?set=KLD"><div id="imgkld">KLD</div></a></th>
+	<th><a href="standings.php?set=AER"><div id="imgaer">AER</div></a></th>
+</tr>
+</table>
+</div>';
 }
 
 function displayCardNav($rpp, $total){
