@@ -1,6 +1,5 @@
 <?php 
-ini_set('display_errors',1);
-function getNewRandomCards() {
+function getNewRandomCards($inputSet) {
 include 'connect.php';
 
 session_status() === PHP_SESSION_ACTIVE ? true : session_start();
@@ -10,7 +9,7 @@ if (isset($_GET['set'])){
 } elseif (isset ($_POST['set'])) {
 	$set = $_POST['set'];
 } else {
-	$set = 'AER';
+	$set = $inputSet;
 	//$set = "%";
 }
 $sql = "SELECT id FROM card WHERE collection LIKE ?";

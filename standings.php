@@ -36,6 +36,6 @@ function refreshStanding (section,rpp) {
 </div>
 </body>
 <footer>
- <p>Magic: The Gathering is ™ & © 2015 Wizards of the Coast&nbsp;&nbsp;&nbsp;&nbsp;MTGStandings.com is unaffiliated with Wizards of the Coast</p>
+ <p>Magic: The Gathering is ™ & © 2015 Wizards of the Coast&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MTGStandings.com is unaffiliated with Wizards of the Coast&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Find a problem? Email:phoenix7700@gmail.com</p>
 </footer>
 </html>

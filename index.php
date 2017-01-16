@@ -7,9 +7,10 @@
 	<title>MTGS - Vote</title>
 <?php
 require './subRoutines.php';
-getNewRandomCards();
+$set = "AER";
+getNewRandomCards($set);
 ?>
-<script>
+<script type="text/javascript">
 function refreshCards (cardID,set) {
 	var xhttp;
 	xhttp = new XMLHttpRequest();
@@ -18,9 +19,10 @@ function refreshCards (cardID,set) {
 			document.getElementById("cardsToCompare").innerHTML = this.responseText;
 		}
 	};
-	xhttp.open("POST", "updaterating.php, true);
+	xhttp.open("POST", "updaterating.php", true);
 	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	xhttp.send("cardClicked=" + cardID + "&set=" + set);
+	console.log("Updated Cards");
 
 }
 </script>
@@ -42,12 +44,12 @@ include_once("analyticstracking.php") ?>
 </div>
 <h1> Which card is more awesome? </h1>
 <div id="cardsToCompare">
-	<input id="compcard" type="image" name="cardClicked" onclick="refreshCards(this.value,<?php if (isset($_GET['set'])){echo $_GET['set'];} else {/*echo '%';*/echo 'AER';} ?>)" value="<?php echo $_SESSION['leftCard']?>" src="http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=<?php echo $_SESSION['leftCard']?>&type=card" />
-	<input id="compcard" type="image" name="cardClicked" onclick="refreshCards(this.value,<?php if (isset($_GET['set'])){echo $_GET['set'];} else {/*echo '%';*/echo 'AER';} ?>)" value="<?php echo $_SESSION['rightCard']?>" src="http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=<?php echo $_SESSION['rightCard']?>&type=card" />
+	<input id="compcard" type="image" name="cardClicked" onclick="refreshCards(this.value,<?php if (isset($_GET['set'])){echo "'".$_GET['set']."'";} else {/*echo '%';*/echo "'".$set."'";} ?>)" value="<?php echo $_SESSION['leftCard']?>" src="http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=<?php echo $_SESSION['leftCard']?>&type=card" />
+	<input id="compcard" type="image" name="cardClicked" onclick="refreshCards(this.value,<?php if (isset($_GET['set'])){echo "'".$_GET['set']."'";} else {/*echo '%';*/echo "'".$set."'";} ?>)" value="<?php echo $_SESSION['rightCard']?>" src="http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=<?php echo $_SESSION['rightCard']?>&type=card" />
 </div>
 </div>
 </body>
 <footer>
- <p>Magic: The Gathering is ™ & © 2015 Wizards of the Coast&nbsp;&nbsp;&nbsp;&nbsp;MTGStandings.com is unaffiliated with Wizards of the Coast</p>
+ <p>Magic: The Gathering is ™ & © 2015 Wizards of the Coast&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MTGStandings.com is unaffiliated with Wizards of the Coast&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Find a problem? Email:phoenix7700@gmail.com</p>
 </footer>
 </html>

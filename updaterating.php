@@ -6,6 +6,11 @@ include 'connect.php';
 //Get POST info------------------------------------------------------------------------------------
 if (isset($_POST['cardClicked'])){
 $cardClicked = $_POST['cardClicked'];
+if (isset($_POST['set'])){
+	$set = $_POST['set'];
+} else {
+	$set = 'SETMISSING';
+}
 session_start();
 $leftCard = $_SESSION ['leftCard'];
 $rightCard = $_SESSION ['rightCard'];
@@ -63,7 +68,6 @@ if (!($statement->execute())) {
 $clickedRatings = $fetchSetRating;
 $clickedWins = $fetchWins;
 $clickedLoss = $fetchLosses;
-
 if(!$statement->bind_param("i",$loser)){ //bind loser parameter then query again
 	echo "Binding loser parameters failed: (" . $statement->errno . ") " . $statement->error;
 	}
@@ -193,12 +197,12 @@ $sql = "UPDATE ratings SET losses = losses+1 WHERE id = ?";
 	if (!($statement->execute())) {
         echo "Execute failed: (" . $statement->errno . ") " . $statement->error;
 	}
-
+$conn->close();
 } else {
 echo "didn't get clicked card";
 }
 //Get new random cards in Session
-getNewRandomCards();
+getNewRandomCards($set);
 //Echo New Cards to be displayed
 $c1 =  $_SESSION['leftCard'];
 $c2 =  $_SESSION['rightCard'];
@@ -206,5 +210,4 @@ $c2 =  $_SESSION['rightCard'];
 echo '<input type="image" name="cardClicked" onclick="refreshCards(this.value)" value="' . $c1 . '" src="http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=' . $c1 . '&type=card" />
 	<input type="image" name="cardClicked" onclick="refreshCards(this.value)" value="' . $c2 . '" src="http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=' . $c2 . '&type=card" />';
 
-$conn->close();
 ?>
