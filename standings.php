@@ -2,6 +2,8 @@
 <html>
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Vote for your favorite cards and see which one rises to the top.">
+	<meta name="keywords" content="standings, mtg, mtgstanding, vote, voting, community, rank, ranking, magic cards, magic the gathering, black lotus, magic: the gathering, wizards of the coast, wizards, trading card game, trading cards, collectible card game, tcg, ccg, magic sets, game, multiplayer, hobby">
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<title>MTGS - Standings</title>
 <script>

@@ -68,7 +68,7 @@ if (!$statement->fetch()) {
 	//Start cards
 	$prevRating = 0;
 	$num = ($section+1) * $resultsPerPage - $resultsPerPage + 1;
-	$numdif = 1;
+	$numdif = 0;
 	do {
 	if($prevRating > $fetchSetRating){
 		$num += $numdif;
