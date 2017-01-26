@@ -139,6 +139,9 @@ th a{
 th a:hover {
 	color: #e73232;
 }
+img {
+width:100%;
+}
 
 #imgkld{
 	height:26px;
@@ -164,12 +167,19 @@ th a:hover {
 #imgaer:hover{
 	background-image: url('http://gatherer.wizards.com/Handlers/Image.ashx?type=symbol&set=AER&size=medium&rarity=M');	
 }
+span{
+margin-right: 30px;
+}
+footer {
+	margin-top:20px;
+}
 @media only screen and (max-width: 768px) {
 	li a{
 		font-size: 2em;
 	}
 	li {
 		width:100%;
+		border-right: none;
 		border-bottom: 3px solid black;
 	}
 	li:last-child {
@@ -182,16 +192,29 @@ th a:hover {
 		width:100%;
 	}
 	#cardsToCompare{
-		width:90%;
-		margin: 3px;
+		width:462px;
+		margin: 3px auto auto auto;
 	}
 	#title{
 		width:100%;
 	}
 	#standings{
-		width:100%;
+		width:650px;
 	}
 	#sectionsbot{
 		margin-bottom: 25px;
+	}
+	
+}
+
+@media only screen and (max-width: 640px) {
+	#cardsToCompare{
+		width: 231px;
+	}
+	#standings{
+		width: 350px;
+	}
+	footer {
+		margin-top:33px;
 	}
 }

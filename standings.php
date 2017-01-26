@@ -38,6 +38,6 @@ function refreshStanding (section,rpp) {
 </div>
 </body>
 <footer>
- <p>Magic: The Gathering is ™ & © 2015 Wizards of the Coast&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MTGStandings.com is unaffiliated with Wizards of the Coast&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Find a problem? Email:phoenix7700@gmail.com</p>
+ <p><span>Magic:&nbsp;The&nbsp;Gathering&nbsp;is&nbsp;™&nbsp;&&nbsp;©&nbsp;2015&nbsp;Wizards&nbsp;of&nbsp;the&nbsp;Coast</span>	<span>MTGStandings.com&nbsp;is&nbsp;NOT&nbsp;affiliated&nbsp;with&nbsp;Wizards&nbsp;of&nbsp;the&nbsp;Coast</span>	Find&nbsp;a&nbsp;problem?&nbsp;Email:phoenix7700@gmail.com</p>
 </footer>
 </html>
