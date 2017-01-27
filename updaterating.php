@@ -19,8 +19,7 @@ if ($cardClicked == $leftCard){
 } else if ($cardClicked == $rightCard){
 	$loser = $leftCard;
 } else{
-//This might cause a problem with the output.
-echo "<p>Something messed up :(". $cardClicked .",". $leftCard .",". $rightCard .")</p>";
+	echo "<p>Something messed up please e-mail phoenix7700@gmail.com :(". $cardClicked .",". $leftCard .",". $rightCard .")</p>";
 }
 
 //UPDATE Card Ratings in Database-----------------------------------------------------------------

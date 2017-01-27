@@ -37,7 +37,6 @@ while ($rand == $rand2){
 }
 }
 
-
 $cardIDs->data_seek($rand);
 $row = $cardIDs->fetch_assoc();
 $cardIDs->data_seek($rand2);

@@ -49,7 +49,7 @@ include_once("analyticstracking.php") ?>
 </table>
 </div>
 <h1> Which card is more awesome? </h1>
-<div onload= "scroll()" id="cardsToCompare">
+<div id="cardsToCompare">
 	<input id="compcard" type="image" name="cardClicked" onclick="refreshCards(this.value,<?php if (isset($_GET['set'])){echo "'".$_GET['set']."'";} else {/*echo '%';*/echo "'".$set."'";} ?>)" value="<?php echo $_SESSION['leftCard']?>" src="http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=<?php echo $_SESSION['leftCard']?>&type=card" />
 	<input id="compcard" type="image" name="cardClicked" onclick="refreshCards(this.value,<?php if (isset($_GET['set'])){echo "'".$_GET['set']."'";} else {/*echo '%';*/echo "'".$set."'";} ?>)" value="<?php echo $_SESSION['rightCard']?>" src="http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=<?php echo $_SESSION['rightCard']?>&type=card" />
 </div>
