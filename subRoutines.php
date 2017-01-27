@@ -26,6 +26,7 @@ if(!($statement = $conn->prepare($sql))){
 			echo "Execute failed: (" . $statement->errno . ") " . $statement->error;
 		}
 }
+
 $cardIDs = $statement->get_result();
 $length = $cardIDs->num_rows;
 $rand = rand(0,$length);
@@ -36,15 +37,17 @@ while ($rand == $rand2){
 }
 }
 
+
 $cardIDs->data_seek($rand);
 $row = $cardIDs->fetch_assoc();
 $cardIDs->data_seek($rand2);
 $row2 = $cardIDs->fetch_assoc();
 
-$conn->close();
-
 $_SESSION['leftCard'] = $row['id'];
 $_SESSION['rightCard'] = $row2['id'];
+
+$conn->close();
+
 }
 
 //K value will slowly decrease as total comparisons goes up to 50

@@ -2,6 +2,25 @@
 
 <html>
 <head>
+<script type="text/javascript">
+function refreshCards (cardID,set,callback) {
+	var dx = window.pageXOffset || document.documentElement.scrollLeft;
+	var dy = window.pageYOffset || document.documentElement.scrollTop;
+	var xhttp;
+	xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function() {
+	if (this.readyState ==4 && this.status == 200) {
+			document.getElementById("cardsToCompare").innerHTML = this.responseText;
+			console.log("Updated Cards");
+			setTimeout(function(){window.scrollTo(dx,dy);}, 300);
+			callback();
+		}
+	};
+	xhttp.open("POST", "updaterating.php", true);
+	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	xhttp.send("cardClicked=" + cardID + "&set=" + set);
+}
+</script>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="Vote for your favorite cards and see which one rises to the top.">
 	<meta name="keywords" content="standings, mtg, mtgstanding, vote, voting, community, rank, ranking, magic cards, magic the gathering, black lotus, magic: the gathering, wizards of the coast, wizards, trading card game, trading cards, collectible card game, tcg, ccg, magic sets, game, multiplayer, hobby">
@@ -12,22 +31,7 @@ require './subRoutines.php';
 $set = "AER";
 getNewRandomCards($set);
 ?>
-<script type="text/javascript">
-function refreshCards (cardID,set) {
-	var xhttp;
-	xhttp = new XMLHttpRequest();
-	xhttp.onreadystatechange = function() {
-	if (this.readyState ==4 && this.status == 200) {
-			document.getElementById("cardsToCompare").innerHTML = this.responseText;
-		}
-	};
-	xhttp.open("POST", "updaterating.php", true);
-	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-	xhttp.send("cardClicked=" + cardID + "&set=" + set);
-	console.log("Updated Cards");
 
-}
-</script>
 </head>
 <body>
 <div id="wrapper">
@@ -45,7 +49,7 @@ include_once("analyticstracking.php") ?>
 </table>
 </div>
 <h1> Which card is more awesome? </h1>
-<div id="cardsToCompare">
+<div onload= "scroll()" id="cardsToCompare">
 	<input id="compcard" type="image" name="cardClicked" onclick="refreshCards(this.value,<?php if (isset($_GET['set'])){echo "'".$_GET['set']."'";} else {/*echo '%';*/echo "'".$set."'";} ?>)" value="<?php echo $_SESSION['leftCard']?>" src="http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=<?php echo $_SESSION['leftCard']?>&type=card" />
 	<input id="compcard" type="image" name="cardClicked" onclick="refreshCards(this.value,<?php if (isset($_GET['set'])){echo "'".$_GET['set']."'";} else {/*echo '%';*/echo "'".$set."'";} ?>)" value="<?php echo $_SESSION['rightCard']?>" src="http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=<?php echo $_SESSION['rightCard']?>&type=card" />
 </div>
