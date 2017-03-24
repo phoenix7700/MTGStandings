@@ -15,6 +15,9 @@ footer p {
 	font-family: "Verdana", Ver , sans-serif;
 	font-size: .5em;
 }
+p{
+	color: white;
+}
 h1 {
 	text-align: center;
 	margin: auto auto;
@@ -47,7 +50,7 @@ h2 {
 
 #wrapper {
 	margin: auto;
-	width: 90%;	
+	width: 99%;	
 }
 #cardsToCompare {
 	margin: 5px auto auto auto;
@@ -69,6 +72,7 @@ h2 {
 	clear: both;
 	margin-bottom:10px;
 }
+
 ul {
 	margin: 0px auto auto auto;
 	list-style-type: none;
@@ -149,11 +153,12 @@ height:100%;
 	width: 100%;
 	float: left;
 	text-indent: 33px;
-	background-image: url('http://gatherer.wizards.com/Handlers/Image.ashx?type=symbol&set=KLD&size=medium&rarity=U');
+	background-image: url('http://gatherer.wizards.com/Handlers/Image.ashx?type=symbol&set=KLD&size=large&rarity=U');
 	background-repeat:no-repeat;
+	background-size: 30px 26px;
 }
 #imgkld:hover{
-	background-image: url('http://gatherer.wizards.com/Handlers/Image.ashx?type=symbol&set=KLD&size=medium&rarity=M');
+	background-image: url('http://gatherer.wizards.com/Handlers/Image.ashx?type=symbol&set=KLD&size=large&rarity=M');
 }
 
 
@@ -162,11 +167,24 @@ height:100%;
 	width:100%;
 	float: left;
 	text-indent: 33px;
-	background-image: url('http://gatherer.wizards.com/Handlers/Image.ashx?type=symbol&set=AER&size=medium&rarity=U');
+	background-image: url('http://gatherer.wizards.com/Handlers/Image.ashx?type=symbol&set=AER&size=large&rarity=U');
 	background-repeat:no-repeat;
+	background-size: 30px 26px;
 }
 #imgaer:hover{
-	background-image: url('http://gatherer.wizards.com/Handlers/Image.ashx?type=symbol&set=AER&size=medium&rarity=M');	
+	background-image: url('http://gatherer.wizards.com/Handlers/Image.ashx?type=symbol&set=AER&size=large&rarity=M');	
+}
+#imgmm3{
+	height:26px;
+	width:100%;
+	float: left;
+	text-indent: 33px;
+	background-image: url('http://gatherer.wizards.com/Handlers/Image.ashx?type=symbol&set=MM3&size=large&rarity=U');
+	background-repeat:no-repeat;
+	background-size: 30px 26px;
+}
+#imgmm3:hover{
+	background-image: url('http://gatherer.wizards.com/Handlers/Image.ashx?type=symbol&set=MM3&size=large&rarity=M');	
 }
 span{
 margin-right: 30px;
@@ -208,7 +226,6 @@ color: white;
 	#sectionsbot{
 		margin-bottom: 25px;
 	}
-	
 }
 
 @media only screen and (max-width: 640px) {

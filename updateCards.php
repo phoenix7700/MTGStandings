@@ -8,10 +8,11 @@
 echo "Updating...";
 ini_set("allow_url_fopen", 1);
 include 'connect.php';
-$json = file_get_contents('http://mtgjson.com/json/AER.json'); // Put URL for JSON file here
+// CHANGE THE SIZE CHANGE THE SIZE CHANGE THE SIZE CHANGE THE SIZE CHANGE THE SIZE CHANGE THE SIZE
+$json = file_get_contents('http://mtgjson.com/json/MM3.json'); // Put URL for JSON file here
 $set = json_decode($json, true);
 //var_dump($set);
-$size = 194; // number of cards in set this should be changed to be dynamic but im lazy
+$size = 249; // number of cards in set this should be changed to be dynamic but im lazy
 echo $size;
 
 
@@ -53,7 +54,7 @@ for($i = 0; $i < $size; $i++){ //Wont work right if size isn't changed per set
 	unset($allcolors);
 	echo "Attempt #" . $i . "</br>";
 	if (!$statement->execute()) {
-        echo "Execute failed: (" . $statement->errno . ") " . $statement->error;
+        echo "Execute failed: (" . $statement->errno . ") " . $statement->error . "</br>";
     }
  }
  $statement->close();

@@ -95,17 +95,21 @@ if (!$statement->fetch()) {
 //Functions
 function displaySetNav($rpp){
 echo '<div id="whichset">
+<div class="centerlist">
 <table>
 <tr>
 	<th><a href="standings.php?set=KLD&s=0&rpp='.$rpp.'"><div id="imgkld">KLD</div></a></th>
 	<th><a href="standings.php?set=AER&s=0&rpp='.$rpp.'"><div id="imgaer">AER</div></a></th>
+	<th><a href="standings.php?set=MM3&s=0&rpp='.$rpp.'"><div id="imgmm3">MM3</div></a></th>
 </tr>
 </table>
+</div>
 </div>';
 }
 
 function displayCardNav($rpp, $total, $set){
 	echo '<div id="sectionsbot">';
+	echo '<div class="centerlist">';
 	echo '<table><tbody><tr>';
 	if ($total < $rpp){
 		echo '<th><a href="standings.php?set='. $set .'&s=0&rpp=' . $rpp . '">1-' . $total .'</a></th>';
@@ -118,7 +122,7 @@ function displayCardNav($rpp, $total, $set){
 	echo '<th><a href="standings.php?set='. $set .'&s='.$i.'&rpp='.$rpp .'">' . ($i * $rpp + 1) .'-'. $total .'</a></th>';
 	}
 	echo '</tr></tbody></table>';
-	echo '</div>';
+	echo '</div></div>';
 }
 
 ?>

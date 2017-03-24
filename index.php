@@ -45,6 +45,7 @@ include_once("analyticstracking.php") ?>
 <tr>
 	<th><a href="index.php?set=KLD"><div id="imgkld">KLD</div></a></th>
 	<th><a href="index.php?set=AER"><div id="imgaer">AER</div></a></th>
+	<th><a href="index.php?set=MM3"><div id="imgmm3">MM3</div></a></th>
 </tr>
 </table>
 </div>
