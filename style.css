@@ -37,6 +37,15 @@ h2 {
 	float:left;
 	text-align: right;
 }
+h3 {
+	color: #a70202;
+	text-decoration: none;
+	text-shadow: 3px 3px 2px black;
+	font-family: "Verdana", Ver , sans-serif;
+	font-weight: bold;
+	float:left;
+	text-align: right;
+}
 #title {
 	width:100%;
 	margin: 0px 0px 0px 0px;
@@ -82,10 +91,10 @@ ul {
 	background-color: rgba(136,136,136,.99);
 }
 
-#compcard{
+#compcardleft, #compcardright{
 	margin: 3px;
 }
-#compcard:hover {
+#compcardleft:hover, #compcardright:hover {
 	box-shadow: 0px 0px 6px 3px rgba(136,136,136,.99);
 	border-radius: 10px;
 }

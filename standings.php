@@ -20,12 +20,12 @@ function refreshStanding (section,rpp) {
 	xhttp.send();
 
 }
+<?php include_once("analyticstracking.php") ?>
 </script>
 </head>
 <body >
 <div id="wrapper">
-<?php include 'nav.php';
- include_once("analyticstracking.php") ?>
+<?php include 'nav.php'; ?>
 <div id="title">
 <img id="title" src="Title.png" alt="MtG Standing" />
 </div>

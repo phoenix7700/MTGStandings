@@ -3,6 +3,20 @@
 <html>
 <head>
 <script type="text/javascript">
+var imgLeft = new Image();
+var imgRight = new Image (); 
+
+function checkIfCardImagesLoaded () {
+	imgLeft.src	= document.getElementById("compcardleft").src;
+	imgRight.src = document.getElementById("compcardright").src;
+	console.log("left " + imgLeft.src + " " + imgLeft.width);
+	console.log("right " + imgRight.src + " " + imgRight.width);
+	if (imgLeft.width == 0 || imgRight.width == 0){
+		var t = document.getElementById('cardsToCompare')
+		t.innerHTML = "<h3>There was an error loading the card images</h3>"
+	}
+}
+
 function refreshCards (cardID,set,callback) {
 	var dx = window.pageXOffset || document.documentElement.scrollLeft;
 	var dy = window.pageYOffset || document.documentElement.scrollTop;
@@ -11,15 +25,17 @@ function refreshCards (cardID,set,callback) {
 	xhttp.onreadystatechange = function() {
 	if (this.readyState ==4 && this.status == 200) {
 			document.getElementById("cardsToCompare").innerHTML = this.responseText;
+			checkIfCardImagesLoaded();
 			console.log("Updated Cards");
 			setTimeout(function(){window.scrollTo(dx,dy);}, 300);
-			callback();
 		}
 	};
 	xhttp.open("POST", "updaterating.php", true);
 	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	xhttp.send("cardClicked=" + cardID + "&set=" + set);
 }
+
+
 </script>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="Vote for your favorite cards and see which one rises to the top.">
@@ -28,15 +44,15 @@ function refreshCards (cardID,set,callback) {
 	<title>MTGS - Vote</title>
 <?php
 require './subRoutines.php';
-$set = "AER";
+$set = "MM3";
 getNewRandomCards($set);
+include_once("analyticstracking.php")
 ?>
-
 </head>
 <body>
+
 <div id="wrapper">
-<?php include 'nav.php'; 
-include_once("analyticstracking.php") ?>
+<?php include 'nav.php'; ?>
 <div id="title">
 <img src="Title.png" alt="MtG Standing" />
 </div>
@@ -51,10 +67,14 @@ include_once("analyticstracking.php") ?>
 </div>
 <h1> Which card is more awesome? </h1>
 <div id="cardsToCompare">
-	<input id="compcard" type="image" name="cardClicked" onclick="refreshCards(this.value,<?php if (isset($_GET['set'])){echo "'".$_GET['set']."'";} else {/*echo '%';*/echo "'".$set."'";} ?>)" value="<?php echo $_SESSION['leftCard']?>" src="http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=<?php echo $_SESSION['leftCard']?>&type=card" />
-	<input id="compcard" type="image" name="cardClicked" onclick="refreshCards(this.value,<?php if (isset($_GET['set'])){echo "'".$_GET['set']."'";} else {/*echo '%';*/echo "'".$set."'";} ?>)" value="<?php echo $_SESSION['rightCard']?>" src="http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=<?php echo $_SESSION['rightCard']?>&type=card" />
+	<input id="compcardleft"  type="image" name="cardClicked" onerror="checkIfCardImagesLoaded()" onclick="refreshCards(this.value,<?php if (isset($_GET['set'])){echo "'".$_GET['set']."'";} else {/*echo '%';*/echo "'".$set."'";} ?>)" value="<?php echo $_SESSION['leftCard']?>" src="http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=<?php echo $_SESSION['leftCard']?>&type=card" />
+	<input id="compcardright" type="image" name="cardClicked" onerror="checkIfCardImagesLoaded()" onclick="refreshCards(this.value,<?php if (isset($_GET['set'])){echo "'".$_GET['set']."'";} else {/*echo '%';*/echo "'".$set."'";} ?>)" value="<?php echo $_SESSION['rightCard']?>" src="http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=<?php echo $_SESSION['rightCard']?>&type=card" />
 </div>
 </div>
+<script> /*This script must be here for the checkIfCardImagesLoaded to work properly. If not the img.width will always be 0 */
+	imgLeft.src	= document.getElementById("compcardleft").src;
+	imgRight.src = document.getElementById("compcardright").src;
+</script>
 </body>
 <footer>
  <p><span>Magic:&nbsp;The&nbsp;Gathering&nbsp;is&nbsp;™&nbsp;&&nbsp;©&nbsp;2015&nbsp;Wizards&nbsp;of&nbsp;the&nbsp;Coast</span>	<span>MTGStandings.com&nbsp;is&nbsp;NOT&nbsp;affiliated&nbsp;with&nbsp;Wizards&nbsp;of&nbsp;the&nbsp;Coast</span>	Find&nbsp;a&nbsp;problem?&nbsp;Email:phoenix7700@gmail.com</p>

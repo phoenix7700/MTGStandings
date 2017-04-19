@@ -17,7 +17,7 @@ if (isset($_GET['rpp'])){
 if (isset($_GET['set'])){
 	$set = $_GET['set'];
 } else {
-	$set = 'AER'; //Will cause problems if you change to new set
+	$set = 'MM3'; //Will cause problems if you change to new set
 }
 $offset = $section * $resultsPerPage;
 

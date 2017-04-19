@@ -206,7 +206,7 @@ getNewRandomCards($set);
 $c1 =  $_SESSION['leftCard'];
 $c2 =  $_SESSION['rightCard'];
 
-echo '<input type="image" name="cardClicked" onclick="refreshCards(this.value,\''.$set.'\')" value="' . $c1 . '" src="http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=' . $c1 . '&type=card" />
-	<input type="image" name="cardClicked" onclick="refreshCards(this.value,\''.$set.'\')" value="' . $c2 . '" src="http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=' . $c2 . '&type=card" />';
+echo '<input id="compcardleft" type="image" name="cardClicked" onerror="checkIfCardImagesLoaded()" onclick="refreshCards(this.value,\''.$set.'\')" value="' . $c1 . '" src="http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=' . $c1 . '&type=card" />
+	<input id="compcardright" type="image" name="cardClicked" onerror="checkIfCardImagesLoaded()" onclick="refreshCards(this.value,\''.$set.'\')" value="' . $c2 . '" src="http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=' . $c2 . '&type=card" />';
 
 ?>
