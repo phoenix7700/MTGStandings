@@ -156,15 +156,18 @@ img {
 width:100%;
 height:100%;
 }
-
-#imgkld{
-	height:26px;
+/*All set selectors */
+#imgkld, #imgaer, #imgmm3, #imgakh{
+		height:26px;
 	width: 100%;
 	float: left;
 	text-indent: 33px;
-	background-image: url('http://gatherer.wizards.com/Handlers/Image.ashx?type=symbol&set=KLD&size=large&rarity=U');
 	background-repeat:no-repeat;
 	background-size: 30px 26px;
+}
+
+#imgkld{
+	background-image: url('http://gatherer.wizards.com/Handlers/Image.ashx?type=symbol&set=KLD&size=large&rarity=U');
 }
 #imgkld:hover{
 	background-image: url('http://gatherer.wizards.com/Handlers/Image.ashx?type=symbol&set=KLD&size=large&rarity=M');
@@ -172,28 +175,23 @@ height:100%;
 
 
 #imgaer{
-	height:26px;
-	width:100%;
-	float: left;
-	text-indent: 33px;
 	background-image: url('http://gatherer.wizards.com/Handlers/Image.ashx?type=symbol&set=AER&size=large&rarity=U');
-	background-repeat:no-repeat;
-	background-size: 30px 26px;
 }
 #imgaer:hover{
 	background-image: url('http://gatherer.wizards.com/Handlers/Image.ashx?type=symbol&set=AER&size=large&rarity=M');	
 }
 #imgmm3{
-	height:26px;
-	width:100%;
-	float: left;
-	text-indent: 33px;
+
 	background-image: url('http://gatherer.wizards.com/Handlers/Image.ashx?type=symbol&set=MM3&size=large&rarity=U');
-	background-repeat:no-repeat;
-	background-size: 30px 26px;
 }
 #imgmm3:hover{
 	background-image: url('http://gatherer.wizards.com/Handlers/Image.ashx?type=symbol&set=MM3&size=large&rarity=M');	
+}
+#imgakh{
+	background-image: url('http://gatherer.wizards.com/Handlers/Image.ashx?type=symbol&set=AKH&size=large&rarity=U');
+}
+#imgakh:hover{
+	background-image: url('http://gatherer.wizards.com/Handlers/Image.ashx?type=symbol&set=AKH&size=large&rarity=M');	
 }
 span{
 margin-right: 30px;

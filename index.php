@@ -44,7 +44,7 @@ function refreshCards (cardID,set,callback) {
 	<title>MTGS - Vote</title>
 <?php
 require './subRoutines.php';
-$set = "MM3";
+$set = "AKH";
 getNewRandomCards($set);
 include_once("analyticstracking.php")
 ?>
@@ -59,9 +59,10 @@ include_once("analyticstracking.php")
 <div id="whichset">
 <table>
 <tr>
-	<th><a href="index.php?set=KLD"><div id="imgkld">KLD</div></a></th>
-	<th><a href="index.php?set=AER"><div id="imgaer">AER</div></a></th>
+	<th><a href="index.php?set=AKH"><div id="imgakh">AKH</div></a></th>
 	<th><a href="index.php?set=MM3"><div id="imgmm3">MM3</div></a></th>
+	<th><a href="index.php?set=AER"><div id="imgaer">AER</div></a></th>
+	<th><a href="index.php?set=KLD"><div id="imgkld">KLD</div></a></th>
 </tr>
 </table>
 </div>

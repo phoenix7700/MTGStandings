@@ -17,7 +17,7 @@ if (isset($_GET['rpp'])){
 if (isset($_GET['set'])){
 	$set = $_GET['set'];
 } else {
-	$set = 'MM3'; //Will cause problems if you change to new set
+	$set = 'AKH'; //Will cause problems if you change to new set
 }
 $offset = $section * $resultsPerPage;
 
@@ -98,9 +98,10 @@ echo '<div id="whichset">
 <div class="centerlist">
 <table>
 <tr>
-	<th><a href="standings.php?set=KLD&s=0&rpp='.$rpp.'"><div id="imgkld">KLD</div></a></th>
-	<th><a href="standings.php?set=AER&s=0&rpp='.$rpp.'"><div id="imgaer">AER</div></a></th>
+	<th><a href="standings.php?set=AKH&s=0&rpp='.$rpp.'"><div id="imgakh">AKH</div></a></th>
 	<th><a href="standings.php?set=MM3&s=0&rpp='.$rpp.'"><div id="imgmm3">MM3</div></a></th>
+	<th><a href="standings.php?set=AER&s=0&rpp='.$rpp.'"><div id="imgaer">AER</div></a></th>
+	<th><a href="standings.php?set=KLD&s=0&rpp='.$rpp.'"><div id="imgkld">KLD</div></a></th>
 </tr>
 </table>
 </div>
